@@ -62,7 +62,8 @@ class PrefaiClient:
                     "create_observation": create_observation,
                 },
                 headers=headers,
-                timeout=5
+                # Longer timeout needed for Cloud Run coldstart.
+                timeout=10
             )
 
             response.raise_for_status()
@@ -119,7 +120,7 @@ class PrefaiClient:
                     "min_similarity": min_similarity,
                 },
                 headers=headers,
-                timeout=5
+                timeout=10
             )
 
             response.raise_for_status()
@@ -164,7 +165,7 @@ class PrefaiClient:
                     "min_similarity": min_similarity,
                 },
                 headers=headers,
-                timeout=5
+                timeout=10
             )
 
             response.raise_for_status()
